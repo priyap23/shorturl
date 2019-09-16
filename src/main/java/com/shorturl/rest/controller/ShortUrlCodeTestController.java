@@ -30,7 +30,6 @@ public class ShortUrlCodeTestController {
 		URLException objExp = new URLException();
 		try {
 		if(null != strInputLongUrl && !strInputLongUrl.isEmpty() && strInputLongUrl.startsWith("http")) {
-			System.out.println("Long URL***********"+strInputLongUrl);
 			strReturnValue =  ShortURLEncodeAndDecode.getInstance().encodeAndDecodeURL(strInputLongUrl);
 			objURlHolder.setUrl(strReturnValue);
 			//throw new Exception("Errror ......");
@@ -61,7 +60,6 @@ public class ShortUrlCodeTestController {
 		URLException objExp = new URLException();
 		try {
 		if(null != strInputLongUrl && !strInputLongUrl.isEmpty() && strInputLongUrl.startsWith("http")) {
-			System.out.println("Long URL***********"+strInputLongUrl);
 			strReturnValue =  encode(strInputLongUrl);
 			objURlHolder.setUrl(strReturnValue);
 			//throw new Exception("Errror ......");
@@ -96,7 +94,6 @@ public class ShortUrlCodeTestController {
 
        StringBuilder sb = new StringBuilder("http://localhost:8080/sl?url=");
        sb.append(new String(shortURL));
-       System.out.println(sb);
 
        urlMap.put(sb.toString(),longUrl);
 
@@ -108,7 +105,6 @@ public class ShortUrlCodeTestController {
    public String decode(String shortUrl) {
 	   
 	   	String strURL = "http://localhost:8080/sl?url=";
-	   	System.out.println("shortUrl ::::::: "+urlMap);
 	   	return  urlMap.get(strURL +shortUrl);
 
    }

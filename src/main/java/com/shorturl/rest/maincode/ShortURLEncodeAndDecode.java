@@ -74,31 +74,24 @@ public class ShortURLEncodeAndDecode {
 		}
 				
 		strLongURL = strProtocol + sbDomain.toString();
-		System.out.println("getReverseKeywordMap :::::::::: "+strLongURL);
 		return strLongURL;
 	}
 
 
 	private String convertLongToShort(String strLongURL) throws Exception{
 		
-		//getKeywordMap();
 		String strConvertedURL = "";
 		
 		StringBuilder sbURL = new StringBuilder("http://localhost:8080/url?url=");
 		URL url;
 		url = new URL(strLongURL);
-		System.out.println("protocol: " + url.getProtocol());
-		System.out.println("domain: " + url.getHost());
-		System.out.println("port: " + url.getPort());
-		System.out.println("uri: " + url.getPath());
 		
 		// protocol
 		String strProtocol = url.getProtocol();
 		//shorten protocol
 		sbURL.append(hmKeyword.get(strProtocol)); 
 		sbURL.append("0");
-		/*sbURL.append(hmKeyword.get(":"));
-		sbURL.append(hmKeyword.get("//"));*/
+		
 		
 		//domain
 		String strDomain = url.getHost();
@@ -113,7 +106,6 @@ public class ShortURLEncodeAndDecode {
 		
 		//Path
 		String strPath = url.getPath();
-		//strPath = strPath.replace("/", "//");
 		if(null != strPath && !strPath.isEmpty()) {
 			sbURL.append("_");
 		}
@@ -128,7 +120,6 @@ public class ShortURLEncodeAndDecode {
 			
 		}
 		
-		System.out.println(" sbURL ::::: "+sbURL.toString());
 		strConvertedURL = sbURL.toString();
 		
 		
